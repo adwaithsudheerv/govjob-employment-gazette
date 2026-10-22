@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font: "EB Garamond", Georgia, serif;
+  --font-title: "Playfair Display", Georgia, serif;
+  --font-sc: "Playfair Display SC", Georgia, serif;
+  --font-sans-serif: "Manrope", system-ui, -apple-system, sans-serif;
+  --black: #1c1f33;
+  --black-acc: #111422;
+  --gray: #eee;
+  --gray-1: #ededed;
+  --paper: #fbf9f5;
+  --card: #ffffff;
+}
+
+@layer base {
+  body {
+    background-color: var(--paper);
+    background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/567707/paper_fibers.png");
+    background-repeat: repeat;
+    color: var(--black);
+    font-family: var(--font);
+    min-height: 100vh;
+    selection-background-color: var(--black);
+    selection-color: var(--paper);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-title);
+    color: var(--black);
+  }
+}
+
+/* Custom broadsheet scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f2eee3;
+  border-left: 1px solid #1c1f33;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1c1f33;
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #363b57;
+}
+
+/* Gazette Specific Components */
+.gazette-double-border {
+  border: 2px solid transparent;
+  outline: 3px solid var(--black);
+  box-shadow: inset 0 0 0 1px var(--black);
+}
+
+.gazette-aside {
+  text-align: center;
+  padding: 3px 0;
+  border: solid var(--black);
+  border-width: 2px 0;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.gazette-aside > div {
+  display: flex;
+  align-items: center;
+  border: solid var(--black);
+  border-width: 1px 0;
+}
+
+.gazette-rule {
+  border-top: 1px solid var(--black);
+}
+
+.gazette-double-rule {
+  border-top: 3px double var(--black);
+}
+
+.gazette-card {
+  background: #ffffff;
+  border: 1.5px solid var(--black);
+  box-shadow: 3px 3px 0 0 var(--black);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gazette-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 0 var(--black);
+}
+
+.gazette-card-urgent {
+  background: #fffafa;
+  border: 2px solid #991b1b;
+  box-shadow: 3px 3px 0 0 #991b1b;
+}
+
+.gazette-card-urgent:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 0 #991b1b;
+}
+
+.gazette-panel {
+  background: #ffffff;
+  border: 1.5px solid var(--black);
+  box-shadow: 4px 4px 0 0 var(--black);
+}
+
+.gazette-stamp {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-sans-serif);
+  font-weight: 800;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 2px 7px;
+  border-width: 1.5px;
+  border-style: solid;
+  border-radius: 2px;
+}
+
+.gazette-btn-ink {
+  background: var(--black);
+  color: #ffffff;
+  border: 1.5px solid var(--black);
+  font-family: var(--font-sans-serif);
+  font-weight: 700;
+  transition: all 0.15s ease;
+}
+
+.gazette-btn-ink:hover {
+  background: #ffffff;
+  color: var(--black);
+}
+
+.gazette-btn-outline {
+  background: transparent;
+  color: var(--black);
+  border: 1.5px solid var(--black);
+  font-family: var(--font-sans-serif);
+  font-weight: 700;
+  transition: all 0.15s ease;
+}
+
+.gazette-btn-outline:hover {
+  background: var(--black);
+  color: #ffffff;
+}
+
+.stamp-pulse {
+  animation: stamp-pulse-anim 1.8s ease-in-out infinite;
+}
+
+@keyframes stamp-pulse-anim {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(153, 27, 27, 0.4);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 0 0 4px rgba(153, 27, 27, 0.2);
+  }
+}

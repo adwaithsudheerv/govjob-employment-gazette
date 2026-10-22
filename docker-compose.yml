@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  govjob-pulse:
+    build: .
+    container_name: govjob_pulse
+    restart: always
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/backend/data
+    environment:
+      - SYNC_INTERVAL_HOURS=12
