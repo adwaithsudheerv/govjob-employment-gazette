@@ -517,10 +517,11 @@ export default function IndiaJobsMap({ jobs = [], onSelectRegionFilter }) {
       attributionControl: false
     });
 
-    // High quality Voyager / Carto Positron tiles showing real, precise Indian borders and cities
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+    // Completely free, public OpenStreetMap tile layer (Zero API key required)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
-      subdomains: 'abcd',
+      subdomains: ['a', 'b', 'c'],
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
 
     mapInstanceRef.current = map;
