@@ -11,10 +11,8 @@ import SettingsModal from './components/SettingsModal';
 import BeginnerAssistant from './components/BeginnerAssistant';
 import GovDocStudio from './components/GovDocStudio';
 import StatePSCDirectory from './components/StatePSCDirectory';
-import CareerRoadmapTree from './components/CareerRoadmapTree';
 import IndiaJobsMap from './components/IndiaJobsMap';
 import ClauseTrapDetector from './components/ClauseTrapDetector';
-import PYQTimeMachine from './components/PYQTimeMachine';
 import { 
   fetchJobs, 
   fetchStats, 
@@ -284,31 +282,20 @@ export default function App() {
           />
         )}
 
-        {/* TAB 6: 20-YEAR CAREER & PROMOTION ROADMAP */}
-        {activeTab === 'career-tree' && (
-          <CareerRoadmapTree />
-        )}
-
-        {/* TAB 7: INTERACTIVE MAP OF INDIA IT OPENINGS */}
+        {/* TAB 6: GRAPHICAL INTERACTIVE MAP OF INDIA IT OPENINGS */}
         {activeTab === 'india-map' && (
           <IndiaJobsMap
             jobs={jobs}
-            onSelectRegionFilter={(reg) => {
-              const query = reg.id === 'central' ? 'Central' : reg.name.split(' ')[0];
-              setFilters(prev => ({ ...prev, q: query }));
+            onSelectRegionFilter={(stateName) => {
+              setFilters(prev => ({ ...prev, q: stateName }));
               setActiveTab('feed');
             }}
           />
         )}
 
-        {/* TAB 8: OFFICIAL CLAUSE & TRAP DETECTOR */}
+        {/* TAB 7: OFFICIAL CLAUSE & TRAP DETECTOR */}
         {activeTab === 'trap-detector' && (
           <ClauseTrapDetector />
-        )}
-
-        {/* TAB 9: 5-MINUTE PYQ TIME MACHINE */}
-        {activeTab === 'pyq-simulator' && (
-          <PYQTimeMachine />
         )}
 
       </main>

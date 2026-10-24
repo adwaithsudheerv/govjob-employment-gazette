@@ -149,18 +149,6 @@ export default function Navbar({
             </button>
 
             <button
-              onClick={() => setActiveTab('career-tree')}
-              className={`px-2.5 py-1.5 text-xs font-sans font-extrabold uppercase tracking-wider transition-all border ${
-                activeTab === 'career-tree'
-                  ? 'bg-[#1c1f33] text-white border-[#1c1f33] shadow-[2px_2px_0px_0px_#1c1f33]'
-                  : 'bg-white text-[#1c1f33] border-[#1c1f33] hover:bg-[#f2eee3]'
-              }`}
-            >
-              <span className="mr-1 font-serif font-normal text-[11px]">§ 6.</span>
-              <span>Career Tree</span>
-            </button>
-
-            <button
               onClick={() => setActiveTab('india-map')}
               className={`px-2.5 py-1.5 text-xs font-sans font-extrabold uppercase tracking-wider transition-all border ${
                 activeTab === 'india-map'
@@ -168,7 +156,7 @@ export default function Navbar({
                   : 'bg-white text-[#1c1f33] border-[#1c1f33] hover:bg-[#f2eee3]'
               }`}
             >
-              <span className="mr-1 font-serif font-normal text-[11px]">§ 7.</span>
+              <span className="mr-1 font-serif font-normal text-[11px]">§ 6.</span>
               <span>India Map</span>
             </button>
 
@@ -180,20 +168,8 @@ export default function Navbar({
                   : 'bg-white text-[#7a1c1c] border-[#7a1c1c] hover:bg-rose-50'
               }`}
             >
-              <span className="mr-1 font-serif font-normal text-[11px]">§ 8.</span>
+              <span className="mr-1 font-serif font-normal text-[11px]">§ 7.</span>
               <span>Trap Detector</span>
-            </button>
-
-            <button
-              onClick={() => setActiveTab('pyq-simulator')}
-              className={`px-2.5 py-1.5 text-xs font-sans font-extrabold uppercase tracking-wider transition-all border ${
-                activeTab === 'pyq-simulator'
-                  ? 'bg-[#065f46] text-white border-[#065f46] shadow-[2px_2px_0px_0px_#065f46]'
-                  : 'bg-white text-[#065f46] border-[#065f46] hover:bg-emerald-50'
-              }`}
-            >
-              <span className="mr-1 font-serif font-normal text-[11px]">§ 9.</span>
-              <span>PYQ Simulator</span>
             </button>
 
           </nav>
