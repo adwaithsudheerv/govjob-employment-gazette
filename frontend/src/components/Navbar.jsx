@@ -137,30 +137,6 @@ export default function Navbar({
             </button>
 
             <button
-              onClick={() => setActiveTab('syllabus')}
-              className={`px-2.5 py-1.5 text-xs font-sans font-extrabold uppercase tracking-wider transition-all border ${
-                activeTab === 'syllabus'
-                  ? 'bg-[#1c1f33] text-white border-[#1c1f33] shadow-[2px_2px_0px_0px_#1c1f33]'
-                  : 'bg-white text-[#1c1f33] border-[#1c1f33] hover:bg-[#f2eee3]'
-              }`}
-            >
-              <span className="mr-1 font-serif font-normal text-[11px]">§ 5.</span>
-              <span>Exam Syllabi</span>
-            </button>
-
-            <button
-              onClick={() => setActiveTab('age-calc')}
-              className={`px-2.5 py-1.5 text-xs font-sans font-extrabold uppercase tracking-wider transition-all border ${
-                activeTab === 'age-calc'
-                  ? 'bg-[#1c1f33] text-white border-[#1c1f33] shadow-[2px_2px_0px_0px_#1c1f33]'
-                  : 'bg-white text-[#1c1f33] border-[#1c1f33] hover:bg-[#f2eee3]'
-              }`}
-            >
-              <span className="mr-1 font-serif font-normal text-[11px]">§ 6.</span>
-              <span>Age Calc</span>
-            </button>
-
-            <button
               onClick={() => setActiveTab('state-psc')}
               className={`px-2.5 py-1.5 text-xs font-sans font-extrabold uppercase tracking-wider transition-all border ${
                 activeTab === 'state-psc'
@@ -168,7 +144,7 @@ export default function Navbar({
                   : 'bg-white text-[#1c1f33] border-[#1c1f33] hover:bg-[#f2eee3]'
               }`}
             >
-              <span className="mr-1 font-serif font-normal text-[11px]">§ 7.</span>
+              <span className="mr-1 font-serif font-normal text-[11px]">§ 5.</span>
               <span>State PSCs</span>
             </button>
 
@@ -180,7 +156,7 @@ export default function Navbar({
                   : 'bg-white text-[#1c1f33] border-[#1c1f33] hover:bg-[#f2eee3]'
               }`}
             >
-              <span className="mr-1 font-serif font-normal text-[11px]">§ 8.</span>
+              <span className="mr-1 font-serif font-normal text-[11px]">§ 6.</span>
               <span>Career Tree</span>
             </button>
 
@@ -192,7 +168,7 @@ export default function Navbar({
                   : 'bg-white text-[#1c1f33] border-[#1c1f33] hover:bg-[#f2eee3]'
               }`}
             >
-              <span className="mr-1 font-serif font-normal text-[11px]">§ 9.</span>
+              <span className="mr-1 font-serif font-normal text-[11px]">§ 7.</span>
               <span>India Map</span>
             </button>
 
@@ -204,7 +180,7 @@ export default function Navbar({
                   : 'bg-white text-[#7a1c1c] border-[#7a1c1c] hover:bg-rose-50'
               }`}
             >
-              <span className="mr-1 font-serif font-normal text-[11px]">§ 10.</span>
+              <span className="mr-1 font-serif font-normal text-[11px]">§ 8.</span>
               <span>Trap Detector</span>
             </button>
 
@@ -216,7 +192,7 @@ export default function Navbar({
                   : 'bg-white text-[#065f46] border-[#065f46] hover:bg-emerald-50'
               }`}
             >
-              <span className="mr-1 font-serif font-normal text-[11px]">§ 11.</span>
+              <span className="mr-1 font-serif font-normal text-[11px]">§ 9.</span>
               <span>PYQ Simulator</span>
             </button>
 

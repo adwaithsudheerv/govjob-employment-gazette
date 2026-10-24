@@ -10,8 +10,6 @@ import SyncControlModal from './components/SyncControlModal';
 import SettingsModal from './components/SettingsModal';
 import BeginnerAssistant from './components/BeginnerAssistant';
 import GovDocStudio from './components/GovDocStudio';
-import SyllabusDesk from './components/SyllabusDesk';
-import AgeCalculator from './components/AgeCalculator';
 import StatePSCDirectory from './components/StatePSCDirectory';
 import CareerRoadmapTree from './components/CareerRoadmapTree';
 import IndiaJobsMap from './components/IndiaJobsMap';
@@ -276,17 +274,7 @@ export default function App() {
           <GovDocStudio />
         )}
 
-        {/* TAB 5: EXAM SYLLABUS & STUDY CHECKLISTS */}
-        {activeTab === 'syllabus' && (
-          <SyllabusDesk />
-        )}
-
-        {/* TAB 6: AGE CUTOFF & RESERVATION CALCULATOR */}
-        {activeTab === 'age-calc' && (
-          <AgeCalculator />
-        )}
-
-        {/* TAB 7: STATE PSC DIRECTORY */}
+        {/* TAB 5: STATE PSC DIRECTORY */}
         {activeTab === 'state-psc' && (
           <StatePSCDirectory
             onSelectStateFilter={(stateName) => {
@@ -296,12 +284,12 @@ export default function App() {
           />
         )}
 
-        {/* TAB 8: 20-YEAR CAREER & PROMOTION ROADMAP */}
+        {/* TAB 6: 20-YEAR CAREER & PROMOTION ROADMAP */}
         {activeTab === 'career-tree' && (
           <CareerRoadmapTree />
         )}
 
-        {/* TAB 9: INTERACTIVE MAP OF INDIA IT OPENINGS */}
+        {/* TAB 7: INTERACTIVE MAP OF INDIA IT OPENINGS */}
         {activeTab === 'india-map' && (
           <IndiaJobsMap
             jobs={jobs}
@@ -313,12 +301,12 @@ export default function App() {
           />
         )}
 
-        {/* TAB 10: OFFICIAL CLAUSE & TRAP DETECTOR */}
+        {/* TAB 8: OFFICIAL CLAUSE & TRAP DETECTOR */}
         {activeTab === 'trap-detector' && (
           <ClauseTrapDetector />
         )}
 
-        {/* TAB 11: 5-MINUTE PYQ TIME MACHINE */}
+        {/* TAB 9: 5-MINUTE PYQ TIME MACHINE */}
         {activeTab === 'pyq-simulator' && (
           <PYQTimeMachine />
         )}
