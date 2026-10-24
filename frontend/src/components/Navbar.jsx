@@ -126,7 +126,43 @@ export default function Navbar({
               }`}
             >
               <span className="mr-1.5 font-serif font-normal">§ 4.</span>
-              <span>Photo & Signature Studio</span>
+              <span>Photo Studio</span>
+            </button>
+
+            <button
+              onClick={() => setActiveTab('syllabus')}
+              className={`px-3 py-1.5 text-xs font-sans font-extrabold uppercase tracking-wider transition-all border ${
+                activeTab === 'syllabus'
+                  ? 'bg-[#1c1f33] text-white border-[#1c1f33] shadow-[2px_2px_0px_0px_#1c1f33]'
+                  : 'bg-white text-[#1c1f33] border-[#1c1f33] hover:bg-[#f2eee3]'
+              }`}
+            >
+              <span className="mr-1.5 font-serif font-normal">§ 5.</span>
+              <span>Exam Syllabi</span>
+            </button>
+
+            <button
+              onClick={() => setActiveTab('age-calc')}
+              className={`px-3 py-1.5 text-xs font-sans font-extrabold uppercase tracking-wider transition-all border ${
+                activeTab === 'age-calc'
+                  ? 'bg-[#1c1f33] text-white border-[#1c1f33] shadow-[2px_2px_0px_0px_#1c1f33]'
+                  : 'bg-white text-[#1c1f33] border-[#1c1f33] hover:bg-[#f2eee3]'
+              }`}
+            >
+              <span className="mr-1.5 font-serif font-normal">§ 6.</span>
+              <span>Age Calculator</span>
+            </button>
+
+            <button
+              onClick={() => setActiveTab('state-psc')}
+              className={`px-3 py-1.5 text-xs font-sans font-extrabold uppercase tracking-wider transition-all border ${
+                activeTab === 'state-psc'
+                  ? 'bg-[#1c1f33] text-white border-[#1c1f33] shadow-[2px_2px_0px_0px_#1c1f33]'
+                  : 'bg-white text-[#1c1f33] border-[#1c1f33] hover:bg-[#f2eee3]'
+              }`}
+            >
+              <span className="mr-1.5 font-serif font-normal">§ 7.</span>
+              <span>State PSCs</span>
             </button>
 
           </nav>

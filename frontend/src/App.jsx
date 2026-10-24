@@ -10,6 +10,9 @@ import SyncControlModal from './components/SyncControlModal';
 import SettingsModal from './components/SettingsModal';
 import BeginnerAssistant from './components/BeginnerAssistant';
 import GovDocStudio from './components/GovDocStudio';
+import SyllabusDesk from './components/SyllabusDesk';
+import AgeCalculator from './components/AgeCalculator';
+import StatePSCDirectory from './components/StatePSCDirectory';
 import { 
   fetchJobs, 
   fetchStats, 
@@ -266,6 +269,26 @@ export default function App() {
         {/* TAB 4: GOVDOC STUDIO (PHOTO & SIGNATURE RESIZER) */}
         {activeTab === 'govdoc' && (
           <GovDocStudio />
+        )}
+
+        {/* TAB 5: EXAM SYLLABUS & STUDY CHECKLISTS */}
+        {activeTab === 'syllabus' && (
+          <SyllabusDesk />
+        )}
+
+        {/* TAB 6: AGE CUTOFF & RESERVATION CALCULATOR */}
+        {activeTab === 'age-calc' && (
+          <AgeCalculator />
+        )}
+
+        {/* TAB 7: STATE PSC DIRECTORY */}
+        {activeTab === 'state-psc' && (
+          <StatePSCDirectory
+            onSelectStateFilter={(stateName) => {
+              setFilters(prev => ({ ...prev, scope: 'STATE_GOVT', q: stateName }));
+              setActiveTab('feed');
+            }}
+          />
         )}
 
       </main>
