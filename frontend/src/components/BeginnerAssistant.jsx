@@ -44,7 +44,7 @@ export default function BeginnerAssistant({
       onSwitchTab('feed');
       setIsOpen(false);
     } else if (type === 'open_matcher') {
-      onSwitchTab('matcher');
+      onSwitchTab('feed');
       setIsOpen(false);
     } else if (type === 'open_tracker') {
       onSwitchTab('tracker');

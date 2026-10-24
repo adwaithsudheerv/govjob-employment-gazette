@@ -119,18 +119,6 @@ export default function Navbar({
             </button>
 
             <button
-              onClick={() => setActiveTab('matcher')}
-              className={`px-2.5 py-1.5 text-xs font-sans font-extrabold uppercase tracking-wider transition-all border ${
-                activeTab === 'matcher'
-                  ? 'bg-[#1c1f33] text-white border-[#1c1f33] shadow-[2px_2px_0px_0px_#1c1f33]'
-                  : 'bg-white text-[#1c1f33] border-[#1c1f33] hover:bg-[#f2eee3]'
-              }`}
-            >
-              <span className="mr-1 font-serif font-normal text-[11px]">§ 3.</span>
-              <span>Resume Audit</span>
-            </button>
-
-            <button
               onClick={() => setActiveTab('govdoc')}
               className={`px-2.5 py-1.5 text-xs font-sans font-extrabold uppercase tracking-wider transition-all border ${
                 activeTab === 'govdoc'
@@ -138,7 +126,7 @@ export default function Navbar({
                   : 'bg-white text-[#1c1f33] border-[#1c1f33] hover:bg-[#f2eee3]'
               }`}
             >
-              <span className="mr-1 font-serif font-normal text-[11px]">§ 4.</span>
+              <span className="mr-1 font-serif font-normal text-[11px]">§ 3.</span>
               <span>Photo Studio</span>
             </button>
 
@@ -150,7 +138,7 @@ export default function Navbar({
                   : 'bg-white text-[#1c1f33] border-[#1c1f33] hover:bg-[#f2eee3]'
               }`}
             >
-              <span className="mr-1 font-serif font-normal text-[11px]">§ 5.</span>
+              <span className="mr-1 font-serif font-normal text-[11px]">§ 4.</span>
               <span>State PSCs</span>
             </button>
 
@@ -162,7 +150,7 @@ export default function Navbar({
                   : 'bg-white text-[#1c1f33] border-[#1c1f33] hover:bg-[#f2eee3]'
               }`}
             >
-              <span className="mr-1 font-serif font-normal text-[11px]">§ 6.</span>
+              <span className="mr-1 font-serif font-normal text-[11px]">§ 5.</span>
               <span>India Map</span>
             </button>
 
@@ -174,7 +162,7 @@ export default function Navbar({
                   : 'bg-white text-[#7a1c1c] border-[#7a1c1c] hover:bg-rose-50'
               }`}
             >
-              <span className="mr-1 font-serif font-normal text-[11px]">§ 7.</span>
+              <span className="mr-1 font-serif font-normal text-[11px]">§ 6.</span>
               <span>Trap Detector</span>
             </button>
 

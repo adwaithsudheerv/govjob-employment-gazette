@@ -255,24 +255,12 @@ export default function App() {
           />
         )}
 
-        {/* TAB 3: STANDALONE AI MATCHER VIEW */}
-        {activeTab === 'matcher' && (
-          <div className="max-w-3xl mx-auto">
-            <EligibilityCheckerModal
-              job={jobs[0] || null}
-              allJobs={jobs}
-              onClose={() => setActiveTab('feed')}
-              onSelectJob={(j) => setSelectedJobForModal(j)}
-            />
-          </div>
-        )}
-
-        {/* TAB 4: GOVDOC STUDIO (PHOTO & SIGNATURE RESIZER) */}
+        {/* TAB 3: GOVDOC STUDIO (PHOTO & SIGNATURE RESIZER) */}
         {activeTab === 'govdoc' && (
           <GovDocStudio />
         )}
 
-        {/* TAB 5: STATE PSC DIRECTORY */}
+        {/* TAB 4: STATE PSC DIRECTORY */}
         {activeTab === 'state-psc' && (
           <StatePSCDirectory
             onSelectStateFilter={(stateName) => {
@@ -282,7 +270,7 @@ export default function App() {
           />
         )}
 
-        {/* TAB 6: GRAPHICAL INTERACTIVE MAP OF INDIA IT OPENINGS */}
+        {/* TAB 5: GRAPHICAL INTERACTIVE MAP OF INDIA IT OPENINGS */}
         {activeTab === 'india-map' && (
           <IndiaJobsMap
             jobs={jobs}
@@ -293,7 +281,7 @@ export default function App() {
           />
         )}
 
-        {/* TAB 7: OFFICIAL CLAUSE & TRAP DETECTOR */}
+        {/* TAB 6: OFFICIAL CLAUSE & TRAP DETECTOR */}
         {activeTab === 'trap-detector' && (
           <ClauseTrapDetector />
         )}
