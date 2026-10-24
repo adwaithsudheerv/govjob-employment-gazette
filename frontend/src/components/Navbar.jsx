@@ -11,8 +11,14 @@ import {
   Briefcase,
   FileCheck,
   Compass,
-  FileText
+  FileText,
+  GitBranch,
+  Map,
+  ShieldAlert,
+  Flame,
+  Radio
 } from 'lucide-react';
+import RadioBulletin from './RadioBulletin';
 
 export default function Navbar({ 
   activeTab, 
@@ -20,6 +26,7 @@ export default function Navbar({
   onSyncTrigger, 
   isSyncing, 
   stats,
+  jobs = [],
   onOpenSettings,
   onOpenSyncLogs,
   onOpenAssistant
@@ -38,7 +45,7 @@ export default function Navbar({
               THE OFFICIAL PUBLIC SECTOR IT RECRUITMENT DISPATCH • NATIONAL & STATE EDITIONS
             </div>
             <div className="hidden sm:block tracking-widest text-right font-serif">
-              NEW DELHI • OCTOBER 23, 2026
+              NEW DELHI • OCTOBER 24, 2026
             </div>
           </div>
         </aside>
@@ -62,23 +69,23 @@ export default function Navbar({
         <div className="gazette-double-rule my-2.5"></div>
 
         {/* Broadsheet Section Navigation Bar */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-3 pt-1 pb-1">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-3 pt-1 pb-1">
           
           {/* Main Section Navigation Pills */}
-          <nav className="flex flex-wrap items-center justify-center gap-1 sm:gap-2">
+          <nav className="flex flex-wrap items-center justify-center gap-1 sm:gap-1.5">
             
             <button
               onClick={() => setActiveTab('feed')}
-              className={`px-3 py-1.5 text-xs font-sans font-extrabold uppercase tracking-wider transition-all border ${
+              className={`px-2.5 py-1.5 text-xs font-sans font-extrabold uppercase tracking-wider transition-all border ${
                 activeTab === 'feed'
                   ? 'bg-[#1c1f33] text-white border-[#1c1f33] shadow-[2px_2px_0px_0px_#1c1f33]'
                   : 'bg-white text-[#1c1f33] border-[#1c1f33] hover:bg-[#f2eee3]'
               }`}
             >
-              <span className="mr-1.5 font-serif font-normal">§ 1.</span>
-              <span>Recruitments Feed</span>
+              <span className="mr-1 font-serif font-normal text-[11px]">§ 1.</span>
+              <span>Feed</span>
               {stats?.total_active_jobs > 0 && (
-                <span className={`ml-2 px-1.5 py-0.2 text-[10px] font-black ${
+                <span className={`ml-1.5 px-1 py-0.2 text-[9px] font-black ${
                   activeTab === 'feed' ? 'bg-white text-[#1c1f33]' : 'bg-[#1c1f33] text-white'
                 }`}>
                   {stats.total_active_jobs}
@@ -88,16 +95,16 @@ export default function Navbar({
 
             <button
               onClick={() => setActiveTab('tracker')}
-              className={`px-3 py-1.5 text-xs font-sans font-extrabold uppercase tracking-wider transition-all border ${
+              className={`px-2.5 py-1.5 text-xs font-sans font-extrabold uppercase tracking-wider transition-all border ${
                 activeTab === 'tracker'
                   ? 'bg-[#1c1f33] text-white border-[#1c1f33] shadow-[2px_2px_0px_0px_#1c1f33]'
                   : 'bg-white text-[#1c1f33] border-[#1c1f33] hover:bg-[#f2eee3]'
               }`}
             >
-              <span className="mr-1.5 font-serif font-normal">§ 2.</span>
-              <span>Application Logbook</span>
+              <span className="mr-1 font-serif font-normal text-[11px]">§ 2.</span>
+              <span>Logbook</span>
               {(stats?.saved_count > 0 || stats?.applied_count > 0) && (
-                <span className={`ml-2 px-1.5 py-0.2 text-[10px] font-black ${
+                <span className={`ml-1.5 px-1 py-0.2 text-[9px] font-black ${
                   activeTab === 'tracker' ? 'bg-white text-[#1c1f33]' : 'bg-[#1c1f33] text-white'
                 }`}>
                   {(stats.saved_count || 0) + (stats.applied_count || 0)}
@@ -107,76 +114,127 @@ export default function Navbar({
 
             <button
               onClick={() => setActiveTab('matcher')}
-              className={`px-3 py-1.5 text-xs font-sans font-extrabold uppercase tracking-wider transition-all border ${
+              className={`px-2.5 py-1.5 text-xs font-sans font-extrabold uppercase tracking-wider transition-all border ${
                 activeTab === 'matcher'
                   ? 'bg-[#1c1f33] text-white border-[#1c1f33] shadow-[2px_2px_0px_0px_#1c1f33]'
                   : 'bg-white text-[#1c1f33] border-[#1c1f33] hover:bg-[#f2eee3]'
               }`}
             >
-              <span className="mr-1.5 font-serif font-normal">§ 3.</span>
-              <span>AI Resume Audit</span>
+              <span className="mr-1 font-serif font-normal text-[11px]">§ 3.</span>
+              <span>Resume Audit</span>
             </button>
 
             <button
               onClick={() => setActiveTab('govdoc')}
-              className={`px-3 py-1.5 text-xs font-sans font-extrabold uppercase tracking-wider transition-all border ${
+              className={`px-2.5 py-1.5 text-xs font-sans font-extrabold uppercase tracking-wider transition-all border ${
                 activeTab === 'govdoc'
                   ? 'bg-[#1c1f33] text-white border-[#1c1f33] shadow-[2px_2px_0px_0px_#1c1f33]'
                   : 'bg-white text-[#1c1f33] border-[#1c1f33] hover:bg-[#f2eee3]'
               }`}
             >
-              <span className="mr-1.5 font-serif font-normal">§ 4.</span>
+              <span className="mr-1 font-serif font-normal text-[11px]">§ 4.</span>
               <span>Photo Studio</span>
             </button>
 
             <button
               onClick={() => setActiveTab('syllabus')}
-              className={`px-3 py-1.5 text-xs font-sans font-extrabold uppercase tracking-wider transition-all border ${
+              className={`px-2.5 py-1.5 text-xs font-sans font-extrabold uppercase tracking-wider transition-all border ${
                 activeTab === 'syllabus'
                   ? 'bg-[#1c1f33] text-white border-[#1c1f33] shadow-[2px_2px_0px_0px_#1c1f33]'
                   : 'bg-white text-[#1c1f33] border-[#1c1f33] hover:bg-[#f2eee3]'
               }`}
             >
-              <span className="mr-1.5 font-serif font-normal">§ 5.</span>
+              <span className="mr-1 font-serif font-normal text-[11px]">§ 5.</span>
               <span>Exam Syllabi</span>
             </button>
 
             <button
               onClick={() => setActiveTab('age-calc')}
-              className={`px-3 py-1.5 text-xs font-sans font-extrabold uppercase tracking-wider transition-all border ${
+              className={`px-2.5 py-1.5 text-xs font-sans font-extrabold uppercase tracking-wider transition-all border ${
                 activeTab === 'age-calc'
                   ? 'bg-[#1c1f33] text-white border-[#1c1f33] shadow-[2px_2px_0px_0px_#1c1f33]'
                   : 'bg-white text-[#1c1f33] border-[#1c1f33] hover:bg-[#f2eee3]'
               }`}
             >
-              <span className="mr-1.5 font-serif font-normal">§ 6.</span>
-              <span>Age Calculator</span>
+              <span className="mr-1 font-serif font-normal text-[11px]">§ 6.</span>
+              <span>Age Calc</span>
             </button>
 
             <button
               onClick={() => setActiveTab('state-psc')}
-              className={`px-3 py-1.5 text-xs font-sans font-extrabold uppercase tracking-wider transition-all border ${
+              className={`px-2.5 py-1.5 text-xs font-sans font-extrabold uppercase tracking-wider transition-all border ${
                 activeTab === 'state-psc'
                   ? 'bg-[#1c1f33] text-white border-[#1c1f33] shadow-[2px_2px_0px_0px_#1c1f33]'
                   : 'bg-white text-[#1c1f33] border-[#1c1f33] hover:bg-[#f2eee3]'
               }`}
             >
-              <span className="mr-1.5 font-serif font-normal">§ 7.</span>
+              <span className="mr-1 font-serif font-normal text-[11px]">§ 7.</span>
               <span>State PSCs</span>
+            </button>
+
+            <button
+              onClick={() => setActiveTab('career-tree')}
+              className={`px-2.5 py-1.5 text-xs font-sans font-extrabold uppercase tracking-wider transition-all border ${
+                activeTab === 'career-tree'
+                  ? 'bg-[#1c1f33] text-white border-[#1c1f33] shadow-[2px_2px_0px_0px_#1c1f33]'
+                  : 'bg-white text-[#1c1f33] border-[#1c1f33] hover:bg-[#f2eee3]'
+              }`}
+            >
+              <span className="mr-1 font-serif font-normal text-[11px]">§ 8.</span>
+              <span>Career Tree</span>
+            </button>
+
+            <button
+              onClick={() => setActiveTab('india-map')}
+              className={`px-2.5 py-1.5 text-xs font-sans font-extrabold uppercase tracking-wider transition-all border ${
+                activeTab === 'india-map'
+                  ? 'bg-[#1c1f33] text-white border-[#1c1f33] shadow-[2px_2px_0px_0px_#1c1f33]'
+                  : 'bg-white text-[#1c1f33] border-[#1c1f33] hover:bg-[#f2eee3]'
+              }`}
+            >
+              <span className="mr-1 font-serif font-normal text-[11px]">§ 9.</span>
+              <span>India Map</span>
+            </button>
+
+            <button
+              onClick={() => setActiveTab('trap-detector')}
+              className={`px-2.5 py-1.5 text-xs font-sans font-extrabold uppercase tracking-wider transition-all border ${
+                activeTab === 'trap-detector'
+                  ? 'bg-[#7a1c1c] text-white border-[#7a1c1c] shadow-[2px_2px_0px_0px_#7a1c1c]'
+                  : 'bg-white text-[#7a1c1c] border-[#7a1c1c] hover:bg-rose-50'
+              }`}
+            >
+              <span className="mr-1 font-serif font-normal text-[11px]">§ 10.</span>
+              <span>Trap Detector</span>
+            </button>
+
+            <button
+              onClick={() => setActiveTab('pyq-simulator')}
+              className={`px-2.5 py-1.5 text-xs font-sans font-extrabold uppercase tracking-wider transition-all border ${
+                activeTab === 'pyq-simulator'
+                  ? 'bg-[#065f46] text-white border-[#065f46] shadow-[2px_2px_0px_0px_#065f46]'
+                  : 'bg-white text-[#065f46] border-[#065f46] hover:bg-emerald-50'
+              }`}
+            >
+              <span className="mr-1 font-serif font-normal text-[11px]">§ 11.</span>
+              <span>PYQ Simulator</span>
             </button>
 
           </nav>
 
           {/* Auxiliary Broadsheet Actions */}
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-2 shrink-0">
             
+            {/* Feature 1: The 60-Second Radio Bulletin Player */}
+            <RadioBulletin jobs={jobs} stats={stats} />
+
             {/* Beginner Handbook Trigger */}
             <button
               onClick={onOpenAssistant}
-              className="px-3 py-1.5 text-xs font-sans font-bold uppercase tracking-wider bg-white text-[#1c1f33] border border-[#1c1f33] hover:bg-[#f2eee3] transition-all flex items-center space-x-1 shadow-[2px_2px_0px_0px_#1c1f33]"
+              className="px-2.5 py-1 text-xs font-sans font-bold uppercase tracking-wider bg-white text-[#1c1f33] border border-[#1c1f33] hover:bg-[#f2eee3] transition-all flex items-center space-x-1 shadow-[2px_2px_0px_0px_#1c1f33]"
             >
               <HelpCircle className="w-3.5 h-3.5 text-[#065f46]" />
-              <span>Candidate Handbook</span>
+              <span className="hidden sm:inline">Handbook</span>
             </button>
 
             {/* Sync Feed Button */}
@@ -184,21 +242,21 @@ export default function Navbar({
               onClick={onSyncTrigger}
               disabled={isSyncing}
               title="Force sync live government recruitment feeds"
-              className={`px-3 py-1.5 text-xs font-sans font-bold uppercase tracking-wider transition-all flex items-center space-x-1.5 border border-[#1c1f33] ${
+              className={`px-2.5 py-1 text-xs font-sans font-bold uppercase tracking-wider transition-all flex items-center space-x-1.5 border border-[#1c1f33] ${
                 isSyncing
                   ? 'bg-[#f2eee3] text-[#686f8a] cursor-not-allowed'
                   : 'bg-[#1c1f33] text-white hover:bg-white hover:text-[#1c1f33] shadow-[2px_2px_0px_0px_#1c1f33]'
               }`}
             >
               <RefreshCw className={`w-3.5 h-3.5 ${isSyncing ? 'animate-spin' : ''}`} />
-              <span className="hidden sm:inline">{isSyncing ? 'Dispatching...' : 'Sync Feed'}</span>
+              <span className="hidden sm:inline">{isSyncing ? 'Syncing...' : 'Sync'}</span>
             </button>
 
             {/* Sync Log button */}
             <button
               onClick={onOpenSyncLogs}
               title="Inspect Raw Feed Ingestion Logs"
-              className="p-1.5 bg-white text-[#1c1f33] border border-[#1c1f33] hover:bg-[#f2eee3] shadow-[2px_2px_0px_0px_#1c1f33]"
+              className="p-1 bg-white text-[#1c1f33] border border-[#1c1f33] hover:bg-[#f2eee3] shadow-[2px_2px_0px_0px_#1c1f33]"
             >
               <Clock className="w-3.5 h-3.5" />
             </button>
@@ -207,7 +265,7 @@ export default function Navbar({
             <button
               onClick={onOpenSettings}
               title="Alert Preferences & Telegram Bot"
-              className="p-1.5 bg-white text-[#1c1f33] border border-[#1c1f33] hover:bg-[#f2eee3] shadow-[2px_2px_0px_0px_#1c1f33]"
+              className="p-1 bg-white text-[#1c1f33] border border-[#1c1f33] hover:bg-[#f2eee3] shadow-[2px_2px_0px_0px_#1c1f33]"
             >
               <SlidersHorizontal className="w-3.5 h-3.5" />
             </button>

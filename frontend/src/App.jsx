@@ -13,6 +13,10 @@ import GovDocStudio from './components/GovDocStudio';
 import SyllabusDesk from './components/SyllabusDesk';
 import AgeCalculator from './components/AgeCalculator';
 import StatePSCDirectory from './components/StatePSCDirectory';
+import CareerRoadmapTree from './components/CareerRoadmapTree';
+import IndiaJobsMap from './components/IndiaJobsMap';
+import ClauseTrapDetector from './components/ClauseTrapDetector';
+import PYQTimeMachine from './components/PYQTimeMachine';
 import { 
   fetchJobs, 
   fetchStats, 
@@ -135,6 +139,7 @@ export default function App() {
         onSyncTrigger={handleSyncTrigger}
         isSyncing={isSyncing}
         stats={stats}
+        jobs={jobs}
         onOpenSettings={() => setIsSettingsModalOpen(true)}
         onOpenSyncLogs={() => setIsSyncModalOpen(true)}
         onOpenAssistant={() => setIsAssistantOpen(true)}
@@ -289,6 +294,33 @@ export default function App() {
               setActiveTab('feed');
             }}
           />
+        )}
+
+        {/* TAB 8: 20-YEAR CAREER & PROMOTION ROADMAP */}
+        {activeTab === 'career-tree' && (
+          <CareerRoadmapTree />
+        )}
+
+        {/* TAB 9: INTERACTIVE MAP OF INDIA IT OPENINGS */}
+        {activeTab === 'india-map' && (
+          <IndiaJobsMap
+            jobs={jobs}
+            onSelectRegionFilter={(reg) => {
+              const query = reg.id === 'central' ? 'Central' : reg.name.split(' ')[0];
+              setFilters(prev => ({ ...prev, q: query }));
+              setActiveTab('feed');
+            }}
+          />
+        )}
+
+        {/* TAB 10: OFFICIAL CLAUSE & TRAP DETECTOR */}
+        {activeTab === 'trap-detector' && (
+          <ClauseTrapDetector />
+        )}
+
+        {/* TAB 11: 5-MINUTE PYQ TIME MACHINE */}
+        {activeTab === 'pyq-simulator' && (
+          <PYQTimeMachine />
         )}
 
       </main>
