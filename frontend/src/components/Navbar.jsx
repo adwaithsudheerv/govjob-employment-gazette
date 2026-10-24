@@ -31,6 +31,12 @@ export default function Navbar({
   onOpenSyncLogs,
   onOpenAssistant
 }) {
+  const dynamicToday = new Date().toLocaleDateString('en-IN', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric'
+  }).toUpperCase();
+
   return (
     <header className="w-full bg-[#fbf9f5] border-b-2 border-[#1c1f33] pt-3 pb-2 text-[#1c1f33]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -45,7 +51,7 @@ export default function Navbar({
               THE OFFICIAL PUBLIC SECTOR IT RECRUITMENT DISPATCH • NATIONAL & STATE EDITIONS
             </div>
             <div className="hidden sm:block tracking-widest text-right font-serif">
-              NEW DELHI • OCTOBER 24, 2026
+              NEW DELHI • {dynamicToday}
             </div>
           </div>
         </aside>
