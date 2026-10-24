@@ -1,9 +1,8 @@
 services:
   - type: web
-    name: govjobpulse
-    env: python
-    buildCommand: "pip install -r backend/requirements.txt && cd frontend && npm install && npm run build"
-    startCommand: "python -m uvicorn app.main:app --app-dir backend --host 0.0.0.0 --port $PORT"
+    name: govjob-employment-gazette
+    env: docker
+    plan: free
     envVars:
       - key: SYNC_INTERVAL_HOURS
         value: 12
